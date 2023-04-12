@@ -4,7 +4,10 @@ import os
 # Carga las variables de entorno para las credenciales del archivo .env
 load_dotenv()
 
-PATH_FILE_DATA = '../data/data.xlsx'
+PATH_FILE_DATA = 'data.xlsx'
+BUCKET_NAME = "arturojcastilloz.appspot.com"
+BLOB_NAME = "data/data.xlsx"
+DESTINATION_FILE = "./data.xlsx"
 
 CREDENTIAL_JSON = ({
     "type": os.getenv("type"),
