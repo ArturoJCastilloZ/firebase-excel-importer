@@ -1,0 +1,4 @@
+pip install python-dotenv
+pip install --upgrade firebase-admin
+pip install pandas
+pip install loguru
