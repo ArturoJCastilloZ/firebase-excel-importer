@@ -45,6 +45,6 @@ Para utilizar esta aplicación, simplemente llame a la función run_process con 
 
 ----
 
-## **CONSTRIBUCIÓN**
+## **CONTRIBUCIÓN**
 
 Si encuentras algún error o quieres contribuir al proyecto, por favor envía un Pull Request con tus cambios. También puedes abrir un Issue para discutir nuevas características o reportar problemas. ¡Tu ayuda es bienvenida para mi crecimiento!
