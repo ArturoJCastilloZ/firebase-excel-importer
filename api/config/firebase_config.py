@@ -5,9 +5,9 @@ import os
 load_dotenv()
 
 PATH_FILE_DATA = 'data.xlsx'
-BUCKET_NAME = "arturojcastilloz.appspot.com"
-BLOB_NAME = "data/data.xlsx"
 DESTINATION_FILE = "./data.xlsx"
+BLOB_NAME = os.getenv('blob')
+BUCKET_NAME = os.getenv("bucket")
 
 CREDENTIAL_JSON = ({
     "type": os.getenv("type"),
