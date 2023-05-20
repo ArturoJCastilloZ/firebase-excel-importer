@@ -31,11 +31,12 @@ Además, también se necesitan las credenciales de Firebase para poder conectars
 ## **INSTALACIÓN**
 
 1. Clonar el repositorio y navegar hasta la carpeta raíz del proyecto.
-2. Crear un ambiente virtual de Python con `virtualenv venv` y activarlo con `source venv/bin/activate` o `venv/Scripts/activate` en windows.
-3. Instalar las librerías requeridas con `pip install -r requirements.txt`.
-4. Descargar las credenciales de servicio de Firebase en formato JSON y agrega los valores en el archivo `.env.example` y después elimina la extensión `.example` del mismo.
-5. Agrega la ruta del archivo excel en el archivo `firebase_config.py`.
-6. Ejecutar el proyecto con el comando `python main.py`.
+2. Instalar `virtualenv` de manera local con `pip install virtualenv`.
+3. Crear un ambiente virtual de Python con `virtualenv venv` y activarlo con `source venv/bin/activate` o `venv/Scripts/activate` en windows.
+4. Instalar las librerías requeridas con `pip install -r requirements.txt`.
+5. Descargar las credenciales de servicio de Firebase en formato JSON y agrega los valores en el archivo `.env.example` y después elimina la extensión `.example` del mismo.
+6. Agrega la ruta del archivo excel en el archivo `firebase_config.py`.
+7. Ejecutar el proyecto con el comando `python main.py`.
 
 ----
 

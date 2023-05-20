@@ -2,3 +2,4 @@ python-dotenv
 firebase-admin
 pandas
 loguru
+openpyxl
