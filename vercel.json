@@ -1,7 +1,14 @@
 {
-    "crons": [
+    "version": 2,
+    "builds": [
+        { "src": "/main.py", "use": "@now/python" }
+    ],
+    "routes": [
+        { "src": "/main.py", "dest": "/main.py" }
+    ],
+    "cron": [
         {
-            "path": "/main.py",
+            "command": "python main.py",
             "schedule": "0 5 * * *"
         }
     ]
