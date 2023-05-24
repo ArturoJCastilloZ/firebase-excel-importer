@@ -1,15 +1,25 @@
 {
-    "version": 2,
-    "builds": [
-        { "src": "/main.py", "use": "@now/python" }
-    ],
-    "routes": [
-        { "src": "/main.py", "dest": "/main.py" }
-    ],
-    "cron": [
-        {
-            "command": "python main.py",
-            "schedule": "0 5 * * *"
-        }
+  "version": 1,
+  "builds": [
+    {
+      "src": "/main.py",
+      "use": "@now/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/main.py",
+      "dest": "/main.py"
+    }
+  ],
+  "cron": {
+    "build-command": "pip install -r requirements.txt",
+    "functions": [
+      {
+        "name": "run-script",
+        "src": "/main.py",
+        "schedule": "0 5 * * *"
+      }
     ]
+  }
 }
