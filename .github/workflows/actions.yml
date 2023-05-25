@@ -31,20 +31,20 @@ jobs:
       - name: Run project
         run: |
           python main.py \
-            --bucket ${{ VARS.BUCKET }} \
-            --blob ${{ VARS.BLOB }} \
-            --path ${{ VARS.PATH_FILE }} \
-            --destination ${{ VARS.DESTINATION }} \
-            --type ${{ VARS.TYPE }} \
-            --project-id ${{ VARS.PROJECT_ID }} \
-            --private-key-id ${{ VARS.PRIVATE_KEY_ID }} \
-            --private-key "${{ VARS.PRIVATE_KEY }}" \
-            --client-email ${{ VARS.CLIENT_EMAIL }} \
-            --client-id ${{ VARS.CLIENT_ID }} \
-            --auth-uri ${{ VARS.AUTH_URI }} \
-            --token-uri ${{ VARS.TOKEN_URI }} \
-            --auth-provider-x509-cert-url ${{ VARS.AUTH_PROVIDER_X509_CERT_URL }} \
-            --client-x509-cert-url ${{ VARS.CLIENT_X509_CERT_URL }}
+            --bucket ${{ vars.BUCKET }} \
+            --blob ${{ vars.BLOB }} \
+            --path ${{ vars.PATH_FILE }} \
+            --destination ${{ vars.DESTINATION }} \
+            --type ${{ vars.TYPE }} \
+            --project-id ${{ vars.PROJECT_ID }} \
+            --private-key-id ${{ vars.PRIVATE_KEY_ID }} \
+            --private-key "${{ vars.PRIVATE_KEY }}" \
+            --client-email ${{ vars.CLIENT_EMAIL }} \
+            --client-id ${{ vars.CLIENT_ID }} \
+            --auth-uri ${{ vars.AUTH_URI }} \
+            --token-uri ${{ vars.TOKEN_URI }} \
+            --auth-provider-x509-cert-url ${{ vars.AUTH_PROVIDER_X509_CERT_URL }} \
+            --client-x509-cert-url ${{ vars.CLIENT_X509_CERT_URL }}
 
       - name: Commit changes
         run: |
