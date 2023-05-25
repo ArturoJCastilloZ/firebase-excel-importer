@@ -4,20 +4,20 @@ import os
 # Carga las variables de entorno para las credenciales del archivo .env
 load_dotenv()
 
-PATH_FILE_DATA = os.getenv("PATH_FILE")
-DESTINATION_FILE = os.getenv("DESTINATION")
-BLOB_NAME = os.getenv("BLOB")
-BUCKET_NAME = os.getenv("BUCKET")
+PATH_FILE_DATA = os.environ.get("PATH_FILE")
+DESTINATION_FILE = os.environ.get("DESTINATION")
+BLOB_NAME = os.environ.get("BLOB")
+BUCKET_NAME = os.environ.get("BUCKET")
 
 CREDENTIAL_JSON = ({
-    "type": os.getenv("TYPE"),
-    "project_id": os.getenv("PROJECT_ID"),
-    "private_key_id": os.getenv("PRIVATE_KEY_ID"),
-    "private_key": os.getenv("PRIVATE_KEY"),
-    "client_email": os.getenv("CLIENT_EMAIL"),
-    "client_id": os.getenv("CLIENT_ID"),
-    "auth_uri": os.getenv("AUTH_URI"),
-    "token_uri": os.getenv("TOKEN_URI"),
-    "auth_provider_x509_cert_url": os.getenv("AUTH_PROVIDER_X509_CERT_URL"),
-    "client_x509_cert_url": os.getenv("CLIENT_X509_CERT_URL")
+    "type": os.environ.get("TYPE"),
+    "project_id": os.environ.get("PROJECT_ID"),
+    "private_key_id": os.environ.get("PRIVATE_KEY_ID"),
+    "private_key": os.environ.get("PRIVATE_KEY").replace(r'\n', '\n'),
+    "client_email": os.environ.get("CLIENT_EMAIL"),
+    "client_id": os.environ.get("CLIENT_ID"),
+    "auth_uri": os.environ.get("AUTH_URI"),
+    "token_uri": os.environ.get("TOKEN_URI"),
+    "auth_provider_x509_cert_url": os.environ.get("AUTH_PROVIDER_X509_CERT_URL"),
+    "client_x509_cert_url": os.environ.get("CLIENT_X509_CERT_URL")
 })
