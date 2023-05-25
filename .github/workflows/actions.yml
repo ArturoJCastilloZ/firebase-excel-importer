@@ -44,20 +44,20 @@ jobs:
           CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
         run: |
           python main.py \
-          --BUCKET ${{ env.BUCKET }} \
-          --BLOB ${{ env.BLOB }} \
-          --PATH_FILE ${{ env.PATH_FILE }} \
-          --DESTINATION ${{ env.DESTINATION }} \
-          --TYPE ${{ env.TYPE }} \
-          --PROJECT_ID ${{ env.PROJECT_ID }} \
-          --PRIVATE_KEY_ID ${{ env.PRIVATE_KEY_ID }} \
-          --PRIVATE_KEY "${{ env.PRIVATE_KEY }}" \
-          --CLIENT_EMAIL ${{ env.CLIENT_EMAIL }} \
-          --CLIENT_ID ${{ env.CLIENT_ID }} \
-          --AUTH_URI ${{ env.AUTH_URI }} \
-          --TOKEN_URI ${{ env.TOKEN_URI }} \
-          --AUTH_PROVIDER_X509_CERT_URL ${{ env.AUTH_PROVIDER_X509_CERT_URL }} \
-          --CLIENT_X509_CERT_URL ${{ env.CLIENT_X509_CERT_URL }}
+          --BUCKET $BUCKET \
+          --BLOB $BLOB \
+          --PATH_FILE $PATH_FILE \
+          --DESTINATION $DESTINATION \
+          --TYPE $TYPE \
+          --PROJECT_ID $PROJECT_ID \
+          --PRIVATE_KEY_ID $PRIVATE_KEY_ID \
+          --PRIVATE_KEY "$PRIVATE_KEY" \
+          --CLIENT_EMAIL $CLIENT_EMAIL \
+          --CLIENT_ID $CLIENT_ID \
+          --AUTH_URI $AUTH_URI \
+          --TOKEN_URI $TOKEN_URI \
+          --AUTH_PROVIDER_X509_CERT_URL $AUTH_PROVIDER_X509_CERT_URL \
+          --CLIENT_X509_CERT_URL $env.CLIENT_X509_CERT_URL
 
       - name: Commit changes
         run: |
