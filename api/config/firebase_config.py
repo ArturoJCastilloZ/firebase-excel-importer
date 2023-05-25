@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 import os
 
 # Carga las variables de entorno para las credenciales del archivo .env
-# load_dotenv()
+load_dotenv()
 
 PATH_FILE_DATA = os.getenv("PATH_FILE")
 DESTINATION_FILE = os.getenv("DESTINATION")
