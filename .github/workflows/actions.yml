@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Production
 
     steps:
       - name: Checkout repository
@@ -23,22 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run project
-        run: |
-          python main.py \
-          --bucket ${{ vars.BUCKET }} \
-          --blob ${{ vars.BLOB }} \
-          --path ${{ vars.PATH_FILE }} \
-          --destination ${{ vars.DESTINATION }} \
-          --type ${{ vars.TYPE }} \
-          --project-id ${{ vars.PROJECT_ID }} \
-          --private-key-id ${{ vars.PRIVATE_KEY_ID }} \
-          --private-key "${{ vars.PRIVATE_KEY }}" \
-          --client-email ${{ vars.CLIENT_EMAIL }} \
-          --client-id ${{ vars.CLIENT_ID }} \
-          --auth-uri ${{ vars.AUTH_URI }} \
-          --token-uri ${{ vars.TOKEN_URI }} \
-          --auth-provider-x509-cert-url ${{ vars.AUTH_PROVIDER_X509_CERT_URL }} \
-          --client-x509-cert-url ${{ vars.CLIENT_X509_CERT_URL }}
+        run: python main.py > logs.txt
 
       - name: Commit changes
         run: |
