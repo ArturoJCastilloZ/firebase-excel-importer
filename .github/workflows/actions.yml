@@ -9,7 +9,7 @@ on:
     - cron: '0 5 * * *' # Todos los días a las 5:00 am
 
 jobs:
-  build:
+  deployment:
     runs-on: ubuntu-latest
     environment: production
 
