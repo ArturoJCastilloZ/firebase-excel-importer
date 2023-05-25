@@ -27,22 +27,22 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run project
-        run: |
-          python main.py \
-          --TYPE: ${{ vars.TYPE }}
-          --PROJECT_ID: ${{ vars.PROJECT_ID }}
-          --PRIVATE_KEY_ID: ${{ vars.PRIVATE_KEY_ID }}
-          --PRIVATE_KEY: ${{ vars.PRIVATE_KEY }}
-          --CLIENT_EMAIL: ${{ vars.CLIENT_EMAIL }}
-          --CLIENT_ID: ${{ vars.CLIENT_ID }}
-          --AUTH_URI: ${{ vars.AUTH_URI }}
-          --TOKEN_URI: ${{ vars.TOKEN_URI }}
-          --AUTH_PROVIDER_X509_CERT_URL: ${{ vars.AUTH_PROVIDER_X509_CERT_URL }}
-          --CLIENT_X509_CERT_URL: ${{ vars.CLIENT_X509_CERT_URL }}
-          --BUCKET: ${{ vars.BUCKET }}
-          --BLOB: ${{ vars.BLOB }}
-          --PATH_FILE: ${{ vars.PATH_FILE }}
-          --DESTINATION: ${{ vars.DESTINATION }}
+        env:
+          TYPE: ${{ vars.TYPE }}
+          PROJECT_ID: ${{ vars.PROJECT_ID }}
+          PRIVATE_KEY_ID: ${{ vars.PRIVATE_KEY_ID }}
+          PRIVATE_KEY: ${{ vars.PRIVATE_KEY }}
+          CLIENT_EMAIL: ${{ vars.CLIENT_EMAIL }}
+          CLIENT_ID: ${{ vars.CLIENT_ID }}
+          AUTH_URI: ${{ vars.AUTH_URI }}
+          TOKEN_URI: ${{ vars.TOKEN_URI }}
+          AUTH_PROVIDER_X509_CERT_URL: ${{ vars.AUTH_PROVIDER_X509_CERT_URL }}
+          CLIENT_X509_CERT_URL: ${{ vars.CLIENT_X509_CERT_URL }}
+          BUCKET: ${{ vars.BUCKET }}
+          BLOB: ${{ vars.BLOB }}
+          PATH_FILE: ${{ vars.PATH_FILE }}
+          DESTINATION: ${{ vars.DESTINATION }}
+        run: python main.py
 
 
       - name: Commit changes
