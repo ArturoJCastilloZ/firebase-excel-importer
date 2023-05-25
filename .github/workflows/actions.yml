@@ -1,13 +1,17 @@
 name: Firebase excel importer
 
 on:
+  push:
+    branches:
+      - master
+
   schedule:
     - cron: '0 5 * * *' # Todos los días a las 5:00 am
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: Production
+    environment: production
 
     steps:
       - name: Checkout repository
