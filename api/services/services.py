@@ -3,6 +3,7 @@ from firebase_admin import firestore, credentials, storage
 import pandas as pd
 from loguru import logger
 import os
+import sys
 
 
 def init_firebase(credentials_) -> firestore.client:
@@ -22,6 +23,8 @@ def init_firebase(credentials_) -> firestore.client:
         return firestore.client()
     except Exception as err:
         logger.exception(f"Ocurrió un error al inicializar firebase: \n {err}")
+        sys.exit(1)
+        
 
 
 def download_file(bucket_name, blob_name, destination_file) -> None:
