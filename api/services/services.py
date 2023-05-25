@@ -23,11 +23,11 @@ def init_firebase(credentials_) -> firestore.client:
         return firestore.client()
     except Exception as err:
         logger.exception(f"Ocurrió un error al inicializar firebase: \n {err}")
-        sys.exit(1)
+        raise sys.exit(1)
         
 
 
-def download_file(bucket_name, blob_name, destination_file) -> None:
+def download_file(bucket_name, blob_name, destination_file) -> bool:
     """
     Descarga un archivo de Firebase Storage y lo guarda en una ubicación local.
 
@@ -44,8 +44,10 @@ def download_file(bucket_name, blob_name, destination_file) -> None:
         bucket = storage.bucket(bucket_name)
         blob = bucket.blob(blob_name)
         blob.download_to_filename(destination_file)
+        return True
     except Exception as err:
         logger.exception(f"Ocurrió un error al descargar el archivo de Firebaset Storage: \n {err}")
+        return False
 
 
 def get_data(data_file) -> dict:
@@ -72,6 +74,7 @@ def get_data(data_file) -> dict:
         return data
     except Exception as err:
         logger.exception(f"Ocurrió un error al extraer la información del archivo: \n {err}")
+        raise sys.exit(1)
 
 
 def clean_firestore(db) -> None:
@@ -93,6 +96,7 @@ def clean_firestore(db) -> None:
             collection.reference.delete()
     except Exception as err:
         logger.exception(f"Ocurrió un error al limpiar las colecciones existentes: \n {err}")
+        sys.exit(1)
 
 
 def save_data(db, data) -> None:
@@ -114,14 +118,15 @@ def save_data(db, data) -> None:
                 doc_ref.set(row_data)
     except Exception as err:
         logger.exception(f"Ocurrió un error al guardar la información de Firestore: \n {err}")
+        sys.exit(1)
 
 
 def run_process(credentials, data_file, bucket_name, blob_name, destination_file):
     """Ejecuta todo el proceso"""
     db = init_firebase(credentials)
-    download_file(bucket_name, blob_name, destination_file)
-    data = get_data(data_file)
-    clean_firestore(db)
-    save_data(db, data)
-    os.remove(f"./{data_file}")
+    if download_file(bucket_name, blob_name, destination_file):
+        data = get_data(data_file) 
+        clean_firestore(db)
+        save_data(db, data)
+        os.remove(f"./{data_file}")
     logger.success("Proceso completo")
