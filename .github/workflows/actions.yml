@@ -27,37 +27,23 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run project
-        env:
-          BUCKET: ${{ vars.BUCKET }}
-          BLOB: ${{ vars.BLOB }}
-          PATH_FILE: ${{ vars.PATH_FILE }}
-          DESTINATION: ${{ vars.DESTINATION }}
-          TYPE: ${{ vars.TYPE }}
-          PROJECT_ID: ${{ vars.PROJECT_ID }}
-          PRIVATE_KEY_ID: ${{ vars.PRIVATE_KEY_ID }}
-          PRIVATE_KEY: ${{ vars.PRIVATE_KEY }}
-          CLIENT_EMAIL: ${{ vars.CLIENT_EMAIL }}
-          CLIENT_ID: ${{ vars.CLIENT_ID }}
-          AUTH_URI: ${{ vars.AUTH_URI }}
-          TOKEN_URI: ${{ vars.TOKEN_URI }}
-          AUTH_PROVIDER_X509_CERT_URL: ${{ vars.AUTH_PROVIDER_X509_CERT_URL }}
-          CLIENT_X509_CERT_URL: ${{ vars.CLIENT_X509_CERT_URL }}
         run: |
           python main.py \
-          --BUCKET $BUCKET \
-          --BLOB $BLOB \
-          --PATH_FILE $PATH_FILE \
-          --DESTINATION $DESTINATION \
-          --TYPE $TYPE \
-          --PROJECT_ID $PROJECT_ID \
-          --PRIVATE_KEY_ID $PRIVATE_KEY_ID \
-          --PRIVATE_KEY "$PRIVATE_KEY" \
-          --CLIENT_EMAIL $CLIENT_EMAIL \
-          --CLIENT_ID $CLIENT_ID \
-          --AUTH_URI $AUTH_URI \
-          --TOKEN_URI $TOKEN_URI \
-          --AUTH_PROVIDER_X509_CERT_URL $AUTH_PROVIDER_X509_CERT_URL \
-          --CLIENT_X509_CERT_URL $env.CLIENT_X509_CERT_URL
+          --BUCKET ${{ vars.BUCKET }}
+          --BLOB ${{ vars.BLOB }}
+          --PATH_FILE ${{ vars.PATH_FILE }}
+          --DESTINATION ${{ vars.DESTINATION }}
+          --TYPE ${{ vars.TYPE }}
+          --PROJECT_ID ${{ vars.PROJECT_ID }}
+          --PRIVATE_KEY_ID ${{ vars.PRIVATE_KEY_ID }}
+          --PRIVATE_KEY ${{ vars.PRIVATE_KEY }}
+          --CLIENT_EMAIL ${{ vars.CLIENT_EMAIL }}
+          --CLIENT_ID ${{ vars.CLIENT_ID }}
+          --AUTH_URI ${{ vars.AUTH_URI }}
+          --TOKEN_URI ${{ vars.TOKEN_URI }}
+          --AUTH_PROVIDER_X509_CERT_URL ${{ vars.AUTH_PROVIDER_X509_CERT_URL }}
+          --CLIENT_X509_CERT_URL ${{ vars.CLIENT_X509_CERT_URL }}
+
 
       - name: Commit changes
         run: |
