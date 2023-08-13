@@ -6,7 +6,7 @@ on:
       - master
 
   schedule:
-    - cron: '0 5 * * *' # Todos los días a las 5:00 am
+    - cron: '0 5 * * 1' # Lunes a las 5:00 am
 
 jobs:
   build:
